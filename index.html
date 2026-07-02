@@ -157,7 +157,7 @@ overflow:hidden;
 
 <h1>Dear Wifey ❤️</h1>
 
-<div class="message">
+<div class="message" id="typing"></div>
 
 I know I hurt you with my words and actions.
 <br><br>
@@ -256,6 +256,36 @@ alert("Thank you Wifey ❤️\n\nI promise I'll never hurt you again.\n\nI love 
 document.getElementById("welcome").style.display="none";
 
 document.getElementById("mainContent").style.display="block";
+
+typeMessage();
+
+}
+  const text = `I know I hurt you with my words and actions.
+
+I never wanted to hurt you.
+
+I am really sorry I messed up last night.
+
+I wanted to apologize to you.
+
+I love you from the bottom of my heart. ❤️
+
+Missing you so much... 🥹`;
+
+let i = 0;
+
+function typeMessage(){
+
+if(i < text.length){
+
+document.getElementById("typing").innerHTML +=
+text.charAt(i) === "\n" ? "<br>" : text.charAt(i);
+
+i++;
+
+setTimeout(typeMessage,45);
+
+}
 
 }
 
