@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Dear Wifey ❤️</title>
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -13,93 +17,87 @@ box-sizing:border-box;
 }
 
 body{
-font-family:Arial,sans-serif;
 background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-min-height:100vh;
-padding:40px 20px;
-display:flex;
-justify-content:center;
+font-family:Arial,sans-serif;
+color:white;
+overflow-x:hidden;
 }
 
 .container{
-max-width:700px;
-width:100%;
-text-align:center;
-animation:fadeIn 1.5s ease;
+width:90%;
+max-width:900px;
+margin:auto;
+padding:40px 20px;
+}
+
+.card{
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(12px);
+border-radius:25px;
+padding:30px;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
 }
 
 h1{
-color:white;
-font-size:48px;
+text-align:center;
+font-size:50px;
 margin-bottom:30px;
 }
 
-p{
-color:white;
+.message{
 font-size:24px;
-line-height:1.8;
-margin-bottom:25px;
+line-height:1.9;
+text-align:center;
+}
+  .gallery{
+margin-top:40px;
+display:grid;
+gap:20px;
+}
+
+.gallery img{
+width:100%;
+border-radius:20px;
+box-shadow:0 8px 20px rgba(0,0,0,.25);
+transition:0.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.03);
 }
 
 .button{
-display:inline-block;
-margin-top:20px;
-padding:15px 35px;
+display:block;
+width:max-content;
+margin:35px auto;
+padding:16px 35px;
 background:white;
 color:#ff4d6d;
 text-decoration:none;
 font-size:22px;
 font-weight:bold;
-border-radius:50px;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
+border-radius:40px;
+transition:.3s;
+}
+
+.button:hover{
+transform:scale(1.08);
 }
 
 .signature{
-margin-top:40px;
-color:white;
-font-size:26px;
+text-align:center;
+font-size:28px;
 font-weight:bold;
+margin-top:20px;
 }
-
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:translateY(40px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-  .hearts{
+#hearts{
 position:fixed;
-top:-50px;
 left:0;
+top:0;
 width:100%;
-font-size:30px;
-display:flex;
-justify-content:space-around;
+height:100%;
 pointer-events:none;
-animation:fall 10s linear infinite;
-opacity:0.6;
-}
-
-@keyframes fall{
-0%{
-transform:translateY(-50px);
-}
-100%{
-transform:translateY(120vh);
-}
-}
-  .card{
-background:rgba(255,255,255,0.18);
-backdrop-filter:blur(12px);
--webkit-backdrop-filter:blur(12px);
-padding:35px;
-border-radius:25px;
-box-shadow:0 8px 30px rgba(0,0,0,0.25);
-border:1px solid rgba(255,255,255,0.3);
+overflow:hidden;
 }
 </style>
 
@@ -108,11 +106,13 @@ border:1px solid rgba(255,255,255,0.3);
 <body>
 
 <div class="container">
-  <div class="card">
+
+<div class="card">
 
 <h1>Dear Wifey ❤️</h1>
 
-<p>
+<div class="message">
+
 I know I hurt you with my words and actions.
 <br><br>
 
@@ -129,9 +129,23 @@ I love you from the bottom of my heart. ❤️
 <br><br>
 
 Missing you so much... 🥹
-</p>
 
-<a class="button">
+</div>
+<div class="gallery">
+
+<img src="01542a02-8fff-44a4-93e7-900ad2af8fe9.jpeg" alt="Anniversary">
+
+<img src="4ba16393-894c-48a9-8ad5-7b0ab8403fd9.jpeg" alt="Diwali">
+
+<img src="5271a30c-ed11-4d75-9061-0583def9c32a.jpeg" alt="Beach Hug">
+
+<img src="5b5e092c-e4f5-4a65-bbf9-6b4b05471e68.jpeg" alt="Beach Swing">
+
+<img src="e94c1dd9-274d-4859-9933-3299c9e28be0.jpeg" alt="Goa Street">
+
+</div>
+
+<a href="#" class="button">
 Will You Forgive Me? ❤️
 </a>
 
@@ -140,9 +154,54 @@ Forever Yours,<br>
 Sachin ❤️
 </div>
   </div>
+
 </div>
-<div class="hearts">
-  ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️
-</div>
+
+<div id="hearts"></div>
+
+<script>
+
+const hearts = document.getElementById("hearts");
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.innerHTML="❤️";
+
+heart.style.position="fixed";
+heart.style.left=Math.random()*100+"vw";
+heart.style.top="-30px";
+heart.style.fontSize=(20+Math.random()*20)+"px";
+heart.style.opacity=Math.random();
+heart.style.pointerEvents="none";
+
+document.body.appendChild(heart);
+
+let pos=-30;
+let speed=2+Math.random()*3;
+
+const fall=setInterval(()=>{
+
+pos+=speed;
+
+heart.style.top=pos+"px";
+
+if(pos>window.innerHeight){
+
+clearInterval(fall);
+
+heart.remove();
+
+}
+
+},20);
+
+}
+
+setInterval(createHeart,500);
+
+</script>
+
 </body>
 </html>
