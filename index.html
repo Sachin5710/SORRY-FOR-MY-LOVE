@@ -220,6 +220,10 @@ transform:scale(1);
   75% {transform: scale(1.1);}
   100% {transform: scale(1);}
 }
+  #endScreen{
+  display:none;
+  z-index:10000;
+}
 </style>
 
 
@@ -324,7 +328,7 @@ heart.remove();
 
 }
 
-setInterval(createHeart,500);
+setInterval(createHeart,900);
   function forgive(){
 
 alert("Thank you Wifey ❤️\n\nI promise I'll never hurt you again.\n\nI love you forever. 🥹❤️");
@@ -399,7 +403,7 @@ function createPetal() {
   }, 8000);
 }
 
-setInterval(createPetal, 300);
+setInterval(createPetal, 700);
 document.addEventListener("mousemove", function(e) {
   const sparkle = document.createElement("div");
   sparkle.innerHTML = "✨";
