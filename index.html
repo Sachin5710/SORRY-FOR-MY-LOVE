@@ -71,6 +71,27 @@ opacity:1;
 transform:translateY(0);
 }
 }
+  .hearts{
+position:fixed;
+top:-50px;
+left:0;
+width:100%;
+font-size:30px;
+display:flex;
+justify-content:space-around;
+pointer-events:none;
+animation:fall 10s linear infinite;
+opacity:0.6;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-50px);
+}
+100%{
+transform:translateY(120vh);
+}
+}
 </style>
 
 </head>
@@ -110,6 +131,8 @@ Sachin ❤️
 </div>
 
 </div>
-
+<div class="hearts">
+  ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️
+</div>
 </body>
 </html>
